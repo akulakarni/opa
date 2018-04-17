@@ -1,0 +1,134 @@
+<section>
+	 <form name="registerform" ng-submit="register.submitRegistration()" class="form-horizontal" >
+	
+		<div class="row">
+			<div class="col-sm-8">
+				<div class="panel panel-default">
+					<div class="panel-heading"><b>Registration Form</b></div>
+					<div class="panel-body">
+						<div class="row">
+							<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3"><span style="color:red">*</span>Name :</div>
+							<div class="col-xs-12 col-sm-9 col-md-9 col-sm-9">
+								 <input type="text" class="form-control"   ng-model="register.data.name"  name="myname"  placeholder="name"  pattern="[A-Za-z\s]{1,}[\.]{0,1}[A-Za-z\s]{0,}$" required>
+								<span style="color:red" ng-show="registerform.myname.$touched && registerform.myname.$error.required">Enter  Name</span>
+								<span style="color:red" ng-show="!registerform.myname.$error.required && registerform.myname.$invalid">
+                            		Enter Correct Name
+                            	</span>
+							</div>
+						</div>
+						<br>
+						<div class="row">
+							<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3"><span style="color:red">*</span>Email :</div>
+							<div class="col-xs-12 col-sm-9 col-md-9 col-sm-9">
+								  <input type="email" class="form-control"  ng-model="register.data.email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" placeholder="email" name="myemail"   required>
+					 <span style="color:red" ng-show="registerform.myemail.$error.required && registerform.myemail.$touched">Enter Email</span>
+							<span style="color:red" ng-show="!registerform.myemail.$error.required && registerform.myemail.$invalid">
+                            Enter a valid Email
+                            </span>
+							</div>
+						</div>
+						<br>
+					
+						<!-- pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" -->
+						<div class="row">
+							<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3"><span style="color:red">*</span>Password :</div>
+							<div class="col-xs-12 col-sm-9 col-md-9 col-sm-9">
+							<input type="password" class="form-control" ng-model="register.data.password" placeholder="password" name="mypassword" minlength="6" maxlength="10" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#\$%\^&\*]).{6,}" required>
+							<span style="color:red" ng-show="registerform.mypassword.$error.required &&  registerform.mypassword.$touched">Enter Password</span>
+							<span style="color:red" ng-show="!registerform.mypassword.$error.required &&  registerform.mypassword.$error.pattern">
+                            Must contain atleast one lowercase,one uppercase letter, one number, a symbol and Minimum length should be 6.
+                            </span>
+							</div>
+						</div>
+						<br>
+						<div class="row">
+							<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3"><span style="color:red">*</span>Confirm Password:</div>
+							<div class="col-xs-12 col-sm-9 col-md-9 col-sm-9">
+								 <input type="password"  class="form-control" ng-model="register.data.confirmPassword" placeholder="password" name="mypasswords"   minlength="6" maxlength="10"  required>
+			             <span style="color:red" ng-show="registerform.confirmPassword.$error.required && registerform.mypasswords.$touched">Enter Confirm Password</span>
+							<span style="color:red" ng-show="register.data.confirmPassword!= register.data.password">Your passwords must match.</span>
+							</div>
+						</div>
+						<br>
+						<div class="row">
+							<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3"><span style="color:red">*</span>Address Line1:</div>
+							<div class="col-xs-12 col-sm-9 col-md-9 col-sm-9">
+								 <textarea rows="2" coloumn="30" class="form-control" ng-model="register.data.addressLineOne" placeholder="Address" name="myaddress1"    maxlength="50" required></textarea>
+								 <span style="color:red" ng-show="registerform.myaddress1.$error.required && registerform.myaddress1.$touched">Enter Address</span>
+							<span style="color:red" ng-show="!registerform.myaddress1.$error.required && registerform.myaddress1.$invalid">
+                            Enter the Address
+                            </span>
+							</div>
+						</div>
+						<br>
+						<div class="row">
+							<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">Address Line2:</div>
+							<div class="col-xs-12 col-sm-9 col-md-9 col-sm-9">
+								<textarea rows="2" coloumn="30"  class="form-control" ng-model="register.data.addressLineTwo"  placeholder="Address" name="myaddress2"  maxlength="50" ></textarea>
+
+							</div>
+						</div>
+						<br>
+						<div class="row">
+							<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3"><span style="color:red">*</span>City:</div>
+							<div class="col-xs-12 col-sm-9 col-md-9 col-sm-9">
+                              <input type="text" class="form-control"   ng-model="register.data.city"   placeholder="city"  name="mycity"  pattern="[a-zA-Z][a-zA-Z ]+" maxlength="30"  required>
+								<span style="color:red" ng-show="registerform.mycity.$error.required&& registerform.mycity.$touched">Enter City</span>
+							<span style="color:red" ng-show="!registerform.mycity.$error.required&& registerform.mycity.$invalid">
+                            Enter the city name correctly	
+                            </span>
+							</div>
+						</div>
+						<br>
+						<div class="row">
+							<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3"><span style="color:red">*</span>State:</div>
+							<div class="col-xs-12 col-sm-9 col-md-9 col-sm-9">
+                              <input type="text"   class="form-control"  ng-model="register.data.state"   placeholder="state"  name="mystate" pattern="[a-zA-Z][a-zA-Z ]+" maxlength="30"  required>
+						     <span style="color:red" ng-show="registerform.mystate.$error.required  && registerform.mystate.$touched">Enter State</span>	
+							<span style="color:red" ng-show="!registerform.mystate.$error.required  && registerform.mystate.$invalid">
+                            Enter the State name correctly
+                            </span>
+							</div>
+						</div>
+						<br>
+						<div class="row">
+							<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3"><span style="color:red">*</span>Pincode:</div>
+							<div class="col-xs-12 col-sm-9 col-md-9 col-sm-9">
+                               <input type="number" class="form-control" ng-model="register.data.pincode" placeholder="pincode" name="mypincode"   minlength="6" maxlength="6"  required>
+						<span style="color:red" ng-show="registerform.mypincode.$error.required  && registerform.mypincode.$touched">Enter Pincode</span>		
+							<span style="color:red" ng-show="!registerform.mypincode.$error.required  && registerform.mypincode.$invalid">
+                            Enter a Valid pincode
+							</span>
+							</div>
+						</div>
+						<br>
+						<div class="row">
+							<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3"><span style="color:red">*</span>Phone Number:</div>
+							<div class="col-xs-12 col-sm-9 col-md-9 col-sm-9">
+                               <input type="number"  class="form-control" ng-model="register.data.number" placeholder="phone number" name="mynumber"   minlength="10"  maxlength="10" required>
+								<span style="color:red" ng-show="registerform.mynumber.$error.required  && registerform.mynumber.$touched">Enter Phone number</span>
+							<span style="color:red" ng-show="!registerform.mynumber.$error.required  && registerform.mynumber.$invalid">
+                            Enter a Valid number
+							</span>
+							</div>
+						</div>
+						<br>
+						<div class="row">
+							<div class="col-xs-3 col-xs-offset-3 col-sm-3 col-md-3 col-lg-3">
+								  <input type="submit" class="btn" ng-disabled="registerform.$invalid" value="Register">
+							</div>
+							<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+								<input  type="reset" class="btn" value="Reset">
+							</div>
+							<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+							<input  type="button" class="btn" ng-click="register.cancel()" value="Cancel">
+							</div>
+						</div>
+
+					</div>
+				</div>
+				
+			</div>
+		</div>
+	</form>
+</section>

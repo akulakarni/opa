@@ -1,0 +1,41 @@
+
+<section>
+	<form name="completedBidsform" class="form-horizontal" >
+		<div class="row">
+			<div class="col-sm-10">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<b>Completed Bids</b>
+					</div>
+					<div class="panel-body">
+						<div class="table-responsive">
+
+							<table border="2" class="table table-striped">
+								<tr>
+
+									<th>Product Name</th>
+									<th>Minimum Bid Amount</th>
+									<th>Winner Name</th>
+									<th>Winner Bid Amount</th>
+									<th>Bid Created Date</th>
+								</tr>
+								<tr ng-repeat="data in completedBids.details">
+
+									<td>{{data.productName}}</td>
+									<td>{{data.actualAmount}}</td>
+									<td>{{data.bidderName}}</td>
+									<td>{{data.maximumBidAmount}}</td>
+									<td>{{data.bidCreatedDate}}</td>
+								</tr>
+								
+							</table>
+							
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+	</form>
+</section>

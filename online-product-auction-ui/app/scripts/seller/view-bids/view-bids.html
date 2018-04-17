@@ -1,0 +1,45 @@
+<section>
+	<form name="activeAuctions.form" class="form-horizontal" id="form">
+		<div class="row">
+			<div class="col-sm-8">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<b>View Bids of Product</b>
+					</div>
+					<div class="panel-body">
+						<div class="row">
+							<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">Product-Name :</div>
+							<div class="col-xs-12 col-sm-9 col-md-9 col-lg-9">{{viewBids.productDetails.name}}</div>
+						</div>
+						<br>
+						<div class="row">
+							<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">Image :</div>
+							<div class="col-xs-12 col-sm-9 col-md-9 col-lg-9">
+							<img width=250 height=200 ng-src="data:image/jpeg;base64,{{viewBids.productDetails.image}}" id="photo-id">
+							</div>
+						</div>
+						<br>
+						<div class="row">
+							<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">Price :</div>
+							<div class="col-xs-12 col-sm-9 col-md-9 col-lg-9">{{viewBids.productDetails.price}}</div>
+						</div>
+						<br>
+					<div class="table-responsive">
+						<table border="2" class="table table-striped">
+							<tr>
+								<th>Bidder Email</th>
+								<th>Bid Amount</th>
+							</tr>
+							<tr ng-repeat="data in viewBids.productDetails.bids">
+								<td>{{data.bidderEmail}}</td>
+								<td>{{data.amount}}</td>
+							</tr>
+							</tr>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+		</div>
+	</form>
+</section>

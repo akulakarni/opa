@@ -1,0 +1,17 @@
+SELECT p.NAME, 
+       p.min_bid_amount, 
+       p.product_id, 
+       (SELECT u.NAME 
+        FROM   user_opa u, 
+               bid b 
+        WHERE  b.bidder_email = u.email 
+               AND win_status = 'Y') BIDDER_NAME, 
+       Max(b.bid_amount) 
+FROM   product_auction p, 
+       bid b, 
+       user_opa u 
+WHERE  b.product_id = p.product_id 
+       AND p.owner_email = 'ram@gmail.com' 
+GROUP  BY p.NAME, 
+          p.min_bid_amount, 
+          p.product_id; 

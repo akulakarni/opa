@@ -1,0 +1,66 @@
+
+<section>
+	<form name="viewAuctions.form" class="form-horizontal">
+		<div class="row">
+			<div class="col-sm-10">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<b>View Auctions</b>
+					</div>
+					<div class="panel-body">
+						<div class="row">
+						<div class="col-xs-12 col-sm-3 col-md-3 col-lg-4"><b>Product Name :</b></div>
+							<div class="col-xs-12 col-sm-3 col-md-3 col-lg-4">
+								<input type="text" class="form-control"
+									ng-model="viewAuctions.data.name" name="name" ng-required = "viewAuctions.isRequiredFeild()">
+							</div>
+						</div><br>
+						<div class="row">
+							<div class="col-xs-12 col-sm-3 col-md-3 col-lg-4"><b>Product Type :</b></div>
+							<div class="col-sm-4">
+								<select ng-model="viewAuctions.data.type" ng-options="types for types in viewAuctions.productTypes" ng-required = "viewAuctions.isRequiredFeild()">
+								
+								</select><br>
+							</div>
+						</div>
+
+                          <br>
+						<input type="button" value="Search" class="btn"
+			ng-click="viewAuctions.auctions();" style="margin-left:10%"/> <input type="reset" value="Cancel"
+			class="btn" style="margin-left:6%"/>
+			
+						<br> <br>
+
+						<div class="table-responsive" ng-show="viewAuctions.products.length > 0">
+
+							<table border="2" class="table table-striped">
+								<tr>
+
+									<th>ProductName</th>
+									<th>Type</th>
+									<th>Minimum Bid Amount</th>
+									<th>Owner Email</th>
+									<th>Image</th>
+									<th>Bid</th>
+								</tr>
+								<tr ng-repeat="data in viewAuctions.products">
+
+									<td>{{data.name}}</td>
+									<td>{{data.type}}</td>
+									<td>{{data.price}}</td>
+									<td>{{data.email}}</td>
+									<td><img ng-src="data:image/jpeg;base64,{{data.image}}" width="100" height="100"/></td>
+									<td><a ui-sref="make-a-bid({prodId: data.product_id, nameSearch: viewAuctions.searchData.name, typeSearch: viewAuctions.searchData.type})">Make A Bid</a></td>
+								</tr>
+								
+							</table>
+							
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+	</form>
+</section>

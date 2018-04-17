@@ -1,0 +1,75 @@
+
+<section>
+	<form name="addauction" ng-submit="createAuction.addAuction()">
+		<div class="row">
+			<div class="col-sm-8">
+				<div class="panel panel-default">
+					<div class="panel-heading">Add Auction</div>
+					<div class="panel-body">
+						<div class="row">
+							<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">Product Name :</div>
+							<div class="col-xs-12 col-sm-9 col-md-9 col-lg-4">
+								<input class="form-control" name="name" type="text" ng-model="createAuction.data.name"  pattern="[a-zA-Z][a-zA-Z ]+" required >
+								<span class="valid" ng-show="!addauction.name.$error.required && addauction.name.$invalid" style="color:red">
+								Please enter product name.</span>
+							</div>
+						</div>
+						<br>
+						<div class="row">
+							<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">Type :</div>
+							<div class="col-xs-12 col-sm-9 col-md-9 col-lg-4">
+								<select name="type",class="form-control" ng-model="createAuction.data.type" ng-options="types for types in createAuction.productTypes" required>
+				
+								</select>
+								<div class="valid" ng-show="!addauction.type.$error.required && addauction.type.$invalid" style="color:red">Please select type of product.</div>
+							</div>	
+						</div>
+						<br>
+						<div class="row">
+							<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">Price :</div>
+							<div class="col-xs-12 col-sm-9 col-md-9 col-lg-4">
+								<input class="form-control" name="price" type="number" ng-model="createAuction.data.price" min="1" required >
+								<div class="valid" ng-show="!addauction.price.$error.required && addauction.price.$invalid" style="color:red">Enter the price.</div>
+							</div>
+						</div>
+						<br>
+						<div class="row">
+							<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">Expiration Date :</div>
+							<div class="col-xs-12 col-sm-9 col-md-9 col-lg-4">
+								<input class="form-control" type="datetime-local" ng-model="createAuction.data.expiredate" name="expiredDate" required min="{{createAuction.currentDate}}" />
+                               <span ng-show="addauction.expiredDate.$dirty && form.expiredDate.$invalid">
+                                  <span ng-show="addauction.expiredDate.$error.required">Start Date is required</span>
+                                    <span ng-show="addauction.expiredDate.$error.min">Start Date should not be less than current date</span>
+                                       </span>
+							</div>
+						</div>
+						
+						<br>
+						<div class="row">
+							<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">Image :</div>
+							<div class="col-xs-12 col-sm-9 col-md-9 col-lg-4">
+								<input  type="file" file-read="createAuction.uploadedFile" required  >
+                                 <img ng-src="data:image/jpeg;base64,{{createAuction.getByteArray()}}" width="100px" height="100px" id="photo-id" ng-if="createAuction.uploadedFile"/>
+						</div>
+						</div>
+						
+						<br>
+					
+							
+							<div class="row">
+							<div class="col-xs-3 col-xs-offset-3 col-sm-3 col-md-3 col-lg-3">
+								  <input type="submit" class="btn"  ng-disabled="addauction.$invalid" value="Add">
+							</div>
+							<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+							<input  type="button" class="btn" ng-click="createAuction.resetForm()" value="Cancel">
+							</div>
+						</div>
+
+					</div>
+				
+				</div>
+			</div>
+		</div>
+	</form>
+	</section>
+	

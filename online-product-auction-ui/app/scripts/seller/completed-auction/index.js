@@ -1,0 +1,1 @@
+angular.module('opa.seller.completed-auction', []);

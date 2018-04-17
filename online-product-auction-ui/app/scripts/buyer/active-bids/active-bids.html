@@ -1,0 +1,32 @@
+
+<div class="panel panel-default">
+    <div class="panel-heading"><b>MY ACTIVE BIDS</b></div>
+
+    <div class="panel-body">
+        <table border="2" class="table table-striped">
+            <tr>
+                <th>Product Name</th>
+                <th>Image</th>
+                <th>Actual Amount</th>
+                <th>Your Bid Amount</th>
+                <th>Maximum Bid Amount</th>
+                <th>Actions</th>
+            </tr>
+
+            <tr ng-if="myActiveBids.activeBids.length === 0">
+                <td colspan="6" class="text-center">You do not have any active bids.</td>
+            </tr>
+
+            <tr ng-if="myActiveBids.activeBids.length !== 0" ng-repeat="activeBid in myActiveBids.activeBids">
+                <td ng-bind="activeBid.productName"></td>
+                <td><img ng-src="data:image/jpeg;base64,{{activeBid.image}}" style="width: 100%" /></td>
+                <td ng-bind="activeBid.actualAmount"></td>
+                <td ng-bind="activeBid.buyerBidAmount"></td>
+                <td ng-bind="activeBid.maximumBidAmount"></td>
+                <td><a ui-sref="modify-bid({prodId: activeBid.productId, nameSearch: activeBid.nameSearch, typeSearch: activeBid.typeSearch})">Modify bid</a></td>
+            </tr>
+        </table>
+    </div>
+
+</div>
+

@@ -1,0 +1,30 @@
+  <div ng-repeat="alert in alerts">
+    <!-- <strong>{{alert.type}}</strong>{{alert.msg}}  -->
+    <div ng-switch on="alert.type">
+    	<div ng-switch-when="success">
+	    	<div class="alert alert-success alert-dismissible">
+	    		<a href="" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+			  	<strong>Success!</strong>  {{alert.msg}}
+			</div>
+		</div>
+    	<div ng-switch-when="warning">
+	    	<div class="alert alert-warning alert-dismissible">
+	    		<a href="" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+			  <strong>Warning!</strong>  {{alert.msg}}
+			</div>
+		</div>
+    	<div ng-switch-when="info">
+	    	<div class="alert alert-info alert-dismissible">
+	    		<a href="" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+			  <strong>Info!</strong>  {{alert.msg}}
+			</div>
+		</div>
+    	<div ng-switch-when="error">
+	    	<div class="alert alert-danger alert-dismissible">
+	    		<a href="" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+			  <strong>Error!</strong>  {{alert.msg}}
+			</div>
+		</div>
+      <div ng-switch-default>default</div>
+  </div>
+  </div>

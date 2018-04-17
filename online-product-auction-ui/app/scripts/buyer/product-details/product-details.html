@@ -1,0 +1,59 @@
+
+<img ng-src="data:image/jpeg;base64,{{productDetails.productImage}}" class="pull-left col-md-4" />
+
+<div class="productDetails col-md-7 col-md-offset-1">
+
+    <h2 ng-bind="productDetails.auctionProduct.name"></h2>
+
+    <div>
+        <label>Type:</label>
+        <span ng-bind="productDetails.auctionProduct.type"></span>
+    </div>
+
+    <div>
+        <label>Minimum bid:</label>
+        <span ng-bind="productDetails.auctionProduct.price"></span>
+    </div>
+
+    <div>
+        <label>Current bid: </label> 
+        <span ng-bind="productDetails.auctionProduct.bids[0].amount"></span>
+    </div>
+
+    <div>
+        <label>Expiration:</label> 
+        <span ng-bind="productDetails.auctionProduct.expiredate"></span>
+    </div>
+
+    <br />
+
+    <form class="form form-inline" ng-submit="productDetails.submitBid()" class="row">
+        <div class="form-group">
+            <label class="control-label">Bid amount: </label> 
+            <input type="number" class="form-control" name="bidAmount" ng-model="productDetails.bid.amount" min="{{productDetails.currentPrice + 1}}" required />
+        </div>
+
+        <div style="margin-top: 3%; padding-left: 17%">
+            <button type="submit" class="btn btn-basic">Bid</button>
+            <button type="button" class="btn btn-basic" ng-click="productDetails.cancelBid()" ng-if="productDetails.showCancel">Cancel</button>
+        </div>
+    </form>
+
+</div>
+
+<style>
+    
+    /*span {
+        color: black
+    }
+
+    img {
+        margin-top: 5%;
+        width: 32%;
+        float: left;
+    }
+
+    .productDetails {
+        margin-left: 40%;
+    }*/
+</style>

@@ -1,0 +1,1 @@
+angular.module('opa.buyer', ['opa.buyer.view-auctions', 'opa.buyer.my-completed-bids', 'opa.buyer.active-bids', 'opa.buyer.make-bid', 'opa.buyer.modify-bid']);

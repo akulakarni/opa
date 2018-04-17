@@ -1,0 +1,53 @@
+<section>
+	<form name="activeAuctions.form" class="form-horizontal">
+		<div class="row">
+			<div class="col-sm-10">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<b>My Active Auctions</b>
+					</div>
+					<div class="panel-body">
+					<div class="col-xs-12 col-sm-3 col-md-3 col-lg-2"><b>Product Type :</b></div>
+					    <div class="col-sm-2">
+								<select ng-model="activeAuctions.data.type" ng-options="types for types in activeAuctions.productTypes">
+								</select><br>
+							</div>
+							<br><br>
+					
+                        
+            
+							<table border="2" class="table table-striped">
+								<tr>
+									<th>Name</th>
+									<th>Type</th>
+									<th>Product Id</th>
+									<th>Image</th>
+									<th>Current Max Bid Amount</th>
+									<th>Actual Min Bid Amount</th>
+									<th>Actions</th>
+								</tr>
+
+								<tr ng-if="activeAuctions.products.length === 0">
+									<td colspan="7">No active auctions found</td>
+								</tr>
+
+								<tr ng-repeat="data in activeAuctions.products| filter: { type : activeAuctions.data.type}">
+									<td>{{data.name}}</td>
+									<td>{{data.type}}</td>
+									<td>{{data.product_id}}</td>
+									<td><img ng-src="data:image/jpeg;base64,{{data.image}}" width="100" height="100" id="photo-id"/></td>
+									<td>{{data.maxBidAmount}}</td>
+									<td>{{data.price}}</td>
+									<td>
+									<a ui-sref="view-all-bids({productId: data.product_id})">view all bids
+									</a>
+									</td>
+								</tr>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+
+	</form>
+</section>
